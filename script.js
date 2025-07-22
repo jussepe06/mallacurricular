@@ -1,16 +1,110 @@
-// Script actualizado para la malla de Medicina Humana USMP
+// Script completo con desbloqueo automático de cursos según prerrequisitos reales de Medicina Humana USMP
 
-// Función para aprobar o desaprobar un curso
+const prerrequisitos = {
+  // Semestre 2
+  epistemologia: ['informatica'],
+  lenguaje: ['comunicacion'],
+  matematica_salud: ['logica'],
+  procedimientos: ['biologia'],
+  quimica_aplicada: ['quimica'],
+  biologia_celular: ['biologia'],
+  fisica_aplicada: ['fisica'],
+  ingles2: ['ingles1'],
+
+  // Semestre 3
+  anatomia1: ['quimica_aplicada', 'biologia_celular', 'fisica_aplicada'],
+  histologia: ['quimica_aplicada', 'biologia_celular', 'fisica_aplicada'],
+  embriologia: ['quimica_aplicada', 'biologia_celular', 'fisica_aplicada'],
+  psicologia: ['lenguaje'],
+  historia_medicina: ['lenguaje'],
+  ingles3: ['ingles2'],
+
+  // Semestre 4
+  anatomia2: ['anatomia1'],
+  bioquimica: ['histologia'],
+  fisiologia1: ['embriologia'],
+  bioestadistica: ['matematica_salud'],
+  realidad_nacional: ['historia_medicina'],
+
+  // Semestre 5
+  fisiologia2: ['fisiologia1'],
+  epidemiologia: ['bioestadistica'],
+  inmunologia: ['fisiologia1'],
+  microbiologia: ['fisiologia1'],
+  diseno_investigacion: ['bioestadistica'],
+  gestion_info: ['ingles2'],
+
+  // Semestre 6
+  farmacologia: ['inmunologia', 'microbiologia'],
+  patologia1: ['inmunologia', 'microbiologia'],
+  fisiopatologia: ['fisiologia2'],
+  salud_publica1: ['epidemiologia'],
+  bioetica: ['realidad_nacional'],
+  lectura_critica: ['diseno_investigacion'],
+
+  // Semestre 7
+  semiologia: ['patologia1'],
+  cardiologia: ['semiologia'],
+  neumologia: ['semiologia'],
+  lab_clinico: ['semiologia'],
+  diagnostico_imagen: ['semiologia'],
+  nutricion: ['semiologia'],
+
+  // Semestre 8
+  hematologia: ['semiologia'],
+  reumatologia: ['semiologia'],
+  nefrologia: ['semiologia'],
+  neurologia: ['semiologia'],
+  patologia2: ['semiologia'],
+  salud_mental: ['semiologia'],
+
+  // Semestre 9
+  gastro: ['hematologia', 'nefrologia', 'neurologia'],
+  dermatologia: ['hematologia', 'nefrologia', 'neurologia'],
+  endocrino: ['hematologia', 'nefrologia', 'neurologia'],
+  infectologia: ['hematologia', 'nefrologia', 'neurologia'],
+  geriatria: ['reumatologia'],
+  rehabilitacion: ['reumatologia'],
+
+  // Semestre 10
+  cirugia_general: ['gastro', 'endocrino', 'infectologia'],
+  cirugia_locomotor: ['gastro', 'endocrino', 'infectologia'],
+  esp_quirurgicas: ['gastro', 'endocrino', 'infectologia'],
+  casos_quirurgicos: ['dermatologia'],
+  anestesiologia: ['dermatologia'],
+  oncologia: ['dermatologia'],
+
+  // Semestre 11
+  pediatria1: ['cirugia_general', 'cirugia_locomotor'],
+  pediatria2: ['pediatria1'],
+  neonatologia: ['cirugia_general', 'cirugia_locomotor'],
+  emergencias: ['esp_quirurgicas'],
+  medicina_legal: ['esp_quirurgicas'],
+  genetica: ['esp_quirurgicas'],
+
+  // Semestre 12
+  ginecologia: ['pediatria1', 'pediatria2', 'neonatologia'],
+  obstetricia: ['pediatria1', 'pediatria2', 'neonatologia'],
+  salud_publica2: ['medicina_legal'],
+  medicina_familiar: ['medicina_legal'],
+  gestion_salud: ['medicina_legal'],
+  telesalud: ['medicina_legal'],
+
+  // Semestre 13 y 14
+  internado2: ['internado1'],
+  investigacion: ['internado1']
+};
+
 function aprobar(id) {
   const curso = document.getElementById(id);
-  if (!curso || curso.classList.contains("bloqueado")) return;
+  if (!curso || curso.classList.contains('bloqueado')) return;
 
-  curso.classList.toggle("aprobado");
+  // Alternar clase aprobado
+  curso.classList.toggle('aprobado');
   guardarEstado();
   actualizarDesbloqueos();
 }
 
-// Guardar el estado en localStorage
 function guardarEstado() {
   const cursos = document.querySelectorAll('.ramo');
   const estado = {};
@@ -20,7 +114,6 @@ function guardarEstado() {
   localStorage.setItem('estadoMallaMedicina', JSON.stringify(estado));
 }
 
-// Cargar el estado desde localStorage
 function cargarEstado() {
   const estado = JSON.parse(localStorage.getItem('estadoMallaMedicina'));
   if (!estado) return;
@@ -32,24 +125,6 @@ function cargarEstado() {
     }
   });
 }
-
-// Estructura básica de prerrequisitos (puedes ampliar más adelante)
-const prerrequisitos = {
-  anatomia2: ['anatomia1'],
-  fisiologia2: ['fisiologia1'],
-  ingles2: ['ingles1'],
-  ingles3: ['ingles2'],
-  ingles4: ['ingles3'],
-  bioquimica: ['quimica_aplicada'],
-  fisica_aplicada: ['fisica'],
-  biologia_celular: ['biologia'],
-  microbiologia: ['fisiologia1'],
-  inmunologia: ['fisiologia1'],
-  farmaco: ['inmunologia', 'microbiologia'],
-  patologia2: ['patologia1'],
-  cirugia_general: ['gastro', 'endocrino', 'infectologia'],
-  oncologia: ['dermatologia'],
-};
 
 function actualizarDesbloqueos() {
   Object.entries(prerrequisitos).forEach(([cursoId, requisitos]) => {
@@ -64,9 +139,8 @@ function actualizarDesbloqueos() {
   });
 }
 
-// Ejecutar al cargar la página
 window.addEventListener('DOMContentLoaded', () => {
   cargarEstado();
   actualizarDesbloqueos();
-  console.log("Script de malla Medicina Humana USMP cargado correctamente.");
+  console.log("Script interactivo de Medicina Humana USMP cargado correctamente.");
 });
