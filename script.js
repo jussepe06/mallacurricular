@@ -1,36 +1,72 @@
 // Script actualizado para la malla de Medicina Humana USMP
 
-// Esta función se llama cuando se hace clic sobre una asignatura
+// Función para aprobar o desaprobar un curso
 function aprobar(id) {
-  const ramo = document.getElementById(id);
-  if (ramo.classList.contains("bloqueado")) return;
+  const curso = document.getElementById(id);
+  if (!curso || curso.classList.contains("bloqueado")) return;
 
-  // Marcar el curso como aprobado visualmente
-  ramo.classList.toggle("aprobado");
-
-  // Aquí podrías agregar lógica para desbloquear ramos relacionados
-  // (si se desea implementar lógica de prerrequisitos más adelante)
+  curso.classList.toggle("aprobado");
+  guardarEstado();
+  actualizarDesbloqueos();
 }
 
-// Posible espacio para agregar desbloqueos por semestre o prerrequisitos
-// Por ejemplo:
-// const prerrequisitos = {
-//   'fisica_aplicada': ['fisica'],
-//   'bioquimica': ['quimica_aplicada'],
-//   'anatomia2': ['anatomia1']
-// };
+// Guardar el estado en localStorage
+function guardarEstado() {
+  const cursos = document.querySelectorAll('.ramo');
+  const estado = {};
+  cursos.forEach(curso => {
+    estado[curso.id] = curso.classList.contains('aprobado');
+  });
+  localStorage.setItem('estadoMallaMedicina', JSON.stringify(estado));
+}
 
-// function actualizarDesbloqueos() {
-//   Object.keys(prerrequisitos).forEach(ramoId => {
-//     const requisitos = prerrequisitos[ramoId];
-//     const completados = requisitos.every(id => document.getElementById(id).classList.contains("aprobado"));
-//     if (completados) {
-//       document.getElementById(ramoId).classList.remove("bloqueado");
-//     }
-//   });
-// }
+// Cargar el estado desde localStorage
+function cargarEstado() {
+  const estado = JSON.parse(localStorage.getItem('estadoMallaMedicina'));
+  if (!estado) return;
 
-// Nota: Para funciones más avanzadas, como guardar el progreso en localStorage, desbloqueo automático por prerrequisitos, o animaciones, puedo ayudarte a implementarlo paso a paso.
+  Object.entries(estado).forEach(([id, aprobado]) => {
+    const curso = document.getElementById(id);
+    if (curso && aprobado) {
+      curso.classList.add('aprobado');
+    }
+  });
+}
 
-console.log("Script de malla Medicina USMP cargado.");
+// Estructura básica de prerrequisitos (puedes ampliar más adelante)
+const prerrequisitos = {
+  anatomia2: ['anatomia1'],
+  fisiologia2: ['fisiologia1'],
+  ingles2: ['ingles1'],
+  ingles3: ['ingles2'],
+  ingles4: ['ingles3'],
+  bioquimica: ['quimica_aplicada'],
+  fisica_aplicada: ['fisica'],
+  biologia_celular: ['biologia'],
+  microbiologia: ['fisiologia1'],
+  inmunologia: ['fisiologia1'],
+  farmaco: ['inmunologia', 'microbiologia'],
+  patologia2: ['patologia1'],
+  cirugia_general: ['gastro', 'endocrino', 'infectologia'],
+  oncologia: ['dermatologia'],
+};
 
+function actualizarDesbloqueos() {
+  Object.entries(prerrequisitos).forEach(([cursoId, requisitos]) => {
+    const curso = document.getElementById(cursoId);
+    const cumplidos = requisitos.every(id => {
+      const c = document.getElementById(id);
+      return c && c.classList.contains('aprobado');
+    });
+    if (curso && cumplidos) {
+      curso.classList.remove('bloqueado');
+    }
+  });
+}
+
+// Ejecutar al cargar la página
+window.addEventListener('DOMContentLoaded', () => {
+  cargarEstado();
+  actualizarDesbloqueos();
+  console.log("Script de malla Medicina Humana USMP cargado correctamente.");
+});
