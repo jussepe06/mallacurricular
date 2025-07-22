@@ -1,3 +1,4 @@
+/* estilos.css remains unchanged */
 body {
   font-family: Arial, sans-serif;
   background-color: #fff0f5;
@@ -49,7 +50,6 @@ h1 {
   cursor: pointer;
   color: #880e4f;
   font-weight: 600;
-  /* Sombra para efecto 3D */
   box-shadow: 4px 4px 8px #c28aa2, -4px -4px 8px #ffcee1;
   transition: all 0.3s ease;
   user-select: none;
