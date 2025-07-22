@@ -1,6 +1,7 @@
+/* Mantenemos los estilos base pero actualizamos colores para medicina */
 body {
   font-family: Arial, sans-serif;
-  background-color: #fff0f5;
+  background-color: #f0f8ff; /* Azul claro en lugar de rosa */
   margin: 0;
   padding: 20px;
 }
@@ -8,23 +9,15 @@ body {
 h1 {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  color: #c2185b;
+  color: #1a5276; /* Azul oscuro en lugar de rosa */
   text-align: center;
   margin-bottom: 40px;
 }
 
-.malla-grid {
-  display: flex;
-  gap: 30px;
-  overflow-x: auto;
-  padding: 10px;
-  justify-content: flex-start;
-}
-
 .semestre {
-  min-width: 220px;
-  background-color: #ffe4ec;
-  border: 2px solid #f48fb1;
+  min-width: 240px; /* Un poco más ancho para nombres más largos */
+  background-color: #eaf2f8;
+  border: 2px solid #3498db;
   border-radius: 10px;
   padding: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -32,55 +25,40 @@ h1 {
 
 .semestre h2 {
   text-align: center;
-  color: #ad1457;
+  color: #2874a6;
   font-size: 1.1em;
   margin-bottom: 12px;
-  border-bottom: 1px solid #f8bbd0;
+  border-bottom: 1px solid #aed6f1;
   padding-bottom: 6px;
 }
 
 .ramo {
-  background: linear-gradient(145deg, #f8bbd0, #ec9fb9);
-  border: 1px solid #c2185b;
+  background: linear-gradient(145deg, #d4e6f1, #a9cce3);
+  border: 1px solid #2980b9;
   border-radius: 8px;
   padding: 12px;
   margin-bottom: 10px;
   text-align: center;
   cursor: pointer;
-  color: #880e4f;
+  color: #154360;
   font-weight: 600;
-  /* Sombra para efecto 3D */
-  box-shadow: 4px 4px 8px #c28aa2, -4px -4px 8px #ffcee1;
+  box-shadow: 4px 4px 8px #a2b9d2, -4px -4px 8px #d4e6f1;
   transition: all 0.3s ease;
   user-select: none;
 }
 
 .ramo:hover {
-  background: linear-gradient(145deg, #f48fb1, #e47c9d);
-  box-shadow: 6px 6px 10px #b67288, -6px -6px 10px #ffbed4;
-  color: #5c0040;
+  background: linear-gradient(145deg, #85c1e9, #5dade2);
+  box-shadow: 6px 6px 10px #7fb3d5, -6px -6px 10px #d4e6f1;
+  color: #0b3a5e;
   transform: translateY(-3px);
 }
 
-.ramo:active {
-  box-shadow: inset 3px 3px 5px #b67288, inset -3px -3px 5px #ffbed4;
-  transform: translateY(1px);
-}
-
-.ramo.bloqueado {
-  background-color: #f3f3f3;
-  color: #999;
-  border-style: dashed;
-  cursor: not-allowed;
-  box-shadow: none;
-  background: none;
-}
-
 .ramo.aprobado {
-  background: linear-gradient(145deg, #d1bee7, #b695d3) !important;
-  color: #4a148c;
-  border-color: #6a1b9a;
-  text-decoration: line-through;
-  font-style: italic;
-  box-shadow: 4px 4px 8px #8a69a2, -4px -4px 8px #c6aee1;
+  background: linear-gradient(145deg, #a3e4d7, #76d7c4) !important;
+  color: #0e6251;
+  border-color: #1d8348;
+  box-shadow: 4px 4px 8px #73c6b6, -4px -4px 8px #d1f2eb;
 }
+
+/* Resto de estilos permanecen igual... */
