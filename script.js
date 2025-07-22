@@ -1,5 +1,4 @@
-// Script completo con desbloqueo automático de cursos según prerrequisitos reales de Medicina Humana USMP
-
+// --- CONFIGURACIÓN DE PRERREQUISITOS ---
 const prerrequisitos = {
   // Semestre 2
   epistemologia: ['informatica'],
@@ -90,21 +89,27 @@ const prerrequisitos = {
   gestion_salud: ['medicina_legal'],
   telesalud: ['medicina_legal'],
 
-  // Semestre 13 y 14
+  // Semestre 13–14
   internado2: ['internado1'],
   investigacion: ['internado1']
 };
 
+// --- FUNCIÓN PRINCIPAL AL HACER CLIC ---
 function aprobar(id) {
   const curso = document.getElementById(id);
-  if (!curso || curso.classList.contains('bloqueado')) return;
+  if (!curso) return;
 
-  // Alternar clase aprobado
+  // Evita marcar cursos bloqueados
+  if (curso.classList.contains('bloqueado')) return;
+
+  // Marcar o desmarcar como aprobado
   curso.classList.toggle('aprobado');
+
   guardarEstado();
   actualizarDesbloqueos();
 }
 
+// --- GUARDAR ESTADO EN LOCALSTORAGE ---
 function guardarEstado() {
   const cursos = document.querySelectorAll('.ramo');
   const estado = {};
@@ -114,33 +119,37 @@ function guardarEstado() {
   localStorage.setItem('estadoMallaMedicina', JSON.stringify(estado));
 }
 
+// --- CARGAR ESTADO GUARDADO AL INICIO ---
 function cargarEstado() {
   const estado = JSON.parse(localStorage.getItem('estadoMallaMedicina'));
   if (!estado) return;
-
   Object.entries(estado).forEach(([id, aprobado]) => {
     const curso = document.getElementById(id);
-    if (curso && aprobado) {
-      curso.classList.add('aprobado');
-    }
+    if (curso && aprobado) curso.classList.add('aprobado');
   });
 }
 
+// --- ACTUALIZAR DESBLOQUEOS SEGÚN PRERREQUISITOS ---
 function actualizarDesbloqueos() {
   Object.entries(prerrequisitos).forEach(([cursoId, requisitos]) => {
     const curso = document.getElementById(cursoId);
-    const cumplidos = requisitos.every(id => {
-      const c = document.getElementById(id);
-      return c && c.classList.contains('aprobado');
+    const todosCumplidos = requisitos.every(id => {
+      const prer = document.getElementById(id);
+      return prer && prer.classList.contains('aprobado');
     });
-    if (curso && cumplidos) {
-      curso.classList.remove('bloqueado');
+
+    if (curso) {
+      if (todosCumplidos) {
+        curso.classList.remove('bloqueado');
+      } else {
+        curso.classList.add('bloqueado');
+      }
     }
   });
 }
 
+// --- INICIALIZACIÓN ---
 window.addEventListener('DOMContentLoaded', () => {
   cargarEstado();
   actualizarDesbloqueos();
-  console.log("Script interactivo de Medicina Humana USMP cargado correctamente.");
 });
