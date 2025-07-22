@@ -1,6 +1,8 @@
-// --- CONFIGURACIÓN DE PRERREQUISITOS ---
+// Script completo y detallado para la malla interactiva de Medicina Humana USMP
+// Este script incluye todos los cursos desde el ciclo 1 al 14 con prerrequisitos reales según el plan de estudios
+
 const prerrequisitos = {
-  // Semestre 2
+  // CICLO 2
   epistemologia: ['informatica'],
   lenguaje: ['comunicacion'],
   matematica_salud: ['logica'],
@@ -10,7 +12,7 @@ const prerrequisitos = {
   fisica_aplicada: ['fisica'],
   ingles2: ['ingles1'],
 
-  // Semestre 3
+  // CICLO 3
   anatomia1: ['quimica_aplicada', 'biologia_celular', 'fisica_aplicada'],
   histologia: ['quimica_aplicada', 'biologia_celular', 'fisica_aplicada'],
   embriologia: ['quimica_aplicada', 'biologia_celular', 'fisica_aplicada'],
@@ -18,14 +20,14 @@ const prerrequisitos = {
   historia_medicina: ['lenguaje'],
   ingles3: ['ingles2'],
 
-  // Semestre 4
+  // CICLO 4
   anatomia2: ['anatomia1'],
   bioquimica: ['histologia'],
   fisiologia1: ['embriologia'],
   bioestadistica: ['matematica_salud'],
   realidad_nacional: ['historia_medicina'],
 
-  // Semestre 5
+  // CICLO 5
   fisiologia2: ['fisiologia1'],
   epidemiologia: ['bioestadistica'],
   inmunologia: ['fisiologia1'],
@@ -33,7 +35,7 @@ const prerrequisitos = {
   diseno_investigacion: ['bioestadistica'],
   gestion_info: ['ingles2'],
 
-  // Semestre 6
+  // CICLO 6
   farmacologia: ['inmunologia', 'microbiologia'],
   patologia1: ['inmunologia', 'microbiologia'],
   fisiopatologia: ['fisiologia2'],
@@ -41,23 +43,23 @@ const prerrequisitos = {
   bioetica: ['realidad_nacional'],
   lectura_critica: ['diseno_investigacion'],
 
-  // Semestre 7
-  semiologia: ['patologia1'],
+  // CICLO 7
+  semiologia: ['anatomia2', 'fisiopatologia', 'patologia1'],
   cardiologia: ['semiologia'],
   neumologia: ['semiologia'],
   lab_clinico: ['semiologia'],
   diagnostico_imagen: ['semiologia'],
   nutricion: ['semiologia'],
 
-  // Semestre 8
+  // CICLO 8
   hematologia: ['semiologia'],
   reumatologia: ['semiologia'],
   nefrologia: ['semiologia'],
   neurologia: ['semiologia'],
-  patologia2: ['semiologia'],
+  patologia2: ['patologia1'],
   salud_mental: ['semiologia'],
 
-  // Semestre 9
+  // CICLO 9
   gastro: ['hematologia', 'nefrologia', 'neurologia'],
   dermatologia: ['hematologia', 'nefrologia', 'neurologia'],
   endocrino: ['hematologia', 'nefrologia', 'neurologia'],
@@ -65,7 +67,7 @@ const prerrequisitos = {
   geriatria: ['reumatologia'],
   rehabilitacion: ['reumatologia'],
 
-  // Semestre 10
+  // CICLO 10
   cirugia_general: ['gastro', 'endocrino', 'infectologia'],
   cirugia_locomotor: ['gastro', 'endocrino', 'infectologia'],
   esp_quirurgicas: ['gastro', 'endocrino', 'infectologia'],
@@ -73,7 +75,7 @@ const prerrequisitos = {
   anestesiologia: ['dermatologia'],
   oncologia: ['dermatologia'],
 
-  // Semestre 11
+  // CICLO 11
   pediatria1: ['cirugia_general', 'cirugia_locomotor'],
   pediatria2: ['pediatria1'],
   neonatologia: ['cirugia_general', 'cirugia_locomotor'],
@@ -81,7 +83,7 @@ const prerrequisitos = {
   medicina_legal: ['esp_quirurgicas'],
   genetica: ['esp_quirurgicas'],
 
-  // Semestre 12
+  // CICLO 12
   ginecologia: ['pediatria1', 'pediatria2', 'neonatologia'],
   obstetricia: ['pediatria1', 'pediatria2', 'neonatologia'],
   salud_publica2: ['medicina_legal'],
@@ -89,27 +91,19 @@ const prerrequisitos = {
   gestion_salud: ['medicina_legal'],
   telesalud: ['medicina_legal'],
 
-  // Semestre 13–14
+  // CICLO 13–14
   internado2: ['internado1'],
   investigacion: ['internado1']
 };
 
-// --- FUNCIÓN PRINCIPAL AL HACER CLIC ---
 function aprobar(id) {
   const curso = document.getElementById(id);
-  if (!curso) return;
-
-  // Evita marcar cursos bloqueados
-  if (curso.classList.contains('bloqueado')) return;
-
-  // Marcar o desmarcar como aprobado
+  if (!curso || curso.classList.contains('bloqueado')) return;
   curso.classList.toggle('aprobado');
-
   guardarEstado();
   actualizarDesbloqueos();
 }
 
-// --- GUARDAR ESTADO EN LOCALSTORAGE ---
 function guardarEstado() {
   const cursos = document.querySelectorAll('.ramo');
   const estado = {};
@@ -119,7 +113,6 @@ function guardarEstado() {
   localStorage.setItem('estadoMallaMedicina', JSON.stringify(estado));
 }
 
-// --- CARGAR ESTADO GUARDADO AL INICIO ---
 function cargarEstado() {
   const estado = JSON.parse(localStorage.getItem('estadoMallaMedicina'));
   if (!estado) return;
@@ -129,7 +122,16 @@ function cargarEstado() {
   });
 }
 
-// --- ACTUALIZAR DESBLOQUEOS SEGÚN PRERREQUISITOS ---
+function desbloquearCursosSinRequisitos() {
+  const todosLosCursos = document.querySelectorAll('.ramo');
+  todosLosCursos.forEach(curso => {
+    const id = curso.id;
+    if (!prerrequisitos.hasOwnProperty(id)) {
+      curso.classList.remove('bloqueado');
+    }
+  });
+}
+
 function actualizarDesbloqueos() {
   Object.entries(prerrequisitos).forEach(([cursoId, requisitos]) => {
     const curso = document.getElementById(cursoId);
@@ -137,7 +139,6 @@ function actualizarDesbloqueos() {
       const prer = document.getElementById(id);
       return prer && prer.classList.contains('aprobado');
     });
-
     if (curso) {
       if (todosCumplidos) {
         curso.classList.remove('bloqueado');
@@ -148,8 +149,9 @@ function actualizarDesbloqueos() {
   });
 }
 
-// --- INICIALIZACIÓN ---
 window.addEventListener('DOMContentLoaded', () => {
   cargarEstado();
+  desbloquearCursosSinRequisitos();
   actualizarDesbloqueos();
 });
+
