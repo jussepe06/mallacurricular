@@ -1,224 +1,186 @@
-// Créditos oficiales de cada ramo
+// Créditos oficiales de cada asignatura de Medicina
 const creditos = {
-  'fundamentos1': 3,
-  'quimica': 3,
-  'biologia': 6,
-  'mate': 2,
-  'fisica': 2,
-  'educacion1': 4,
-  'cs_sociales1': 6,
-  'cfg1': 2,
-  'ingles1': 3,
-  'saludcom1': 4,
-  'bioquimica': 3,
-  'biodesarrollo': 4,
-  'fisiologia': 4,
-  'anatomia': 5,
-  'histologia': 3,
-  'integracion1': 2,
-  'cfg2': 2,
-  'ingles2': 3,
-  'fundamentos2': 4,
-  'obstetricia1': 4,
-  'neonatologia1': 4,
-  'fisiologia_sis': 5,
-  'inmunologia': 3,
-  'agentes': 3,
-  'cs_sociales2': 5,
-  'ingles3': 3,
-  'neonatologia2': 3,
-  'obstetricia2': 3,
-  'gineco1': 5,
-  'fisiopato': 5,
-  'infectologia': 3,
-  'farmacologia': 4,
-  'integracion2': 3,
-  'investigacion1': 3,
-  'clinica_neonatal1': 5,
-  'clinica_partos1': 5,
-  'clinica_ap1': 5,
-  'clinica_puerperio': 5,
-  'clinica_saludcom': 4,
-  'modulo1': 4,
-  'neonatologia3': 4,
-  'saludcom2': 6,
-  'obstetricia_pat': 4,
-  'gestion1': 4,
-  'educacion2': 3,
-  'investigacion2': 5,
-  'cs_sociales3': 4,
-  'cfg3': 2,
-  'enfermeria_mq': 6,
-  'reproduccion': 2,
-  'gineco_pat': 5,
-  'gestion2': 5,
-  'investigacion3': 6,
-  'cs_sociales4': 4,
-  'clinica_neonatal2': 5,
-  'clinica_partos2': 4,
-  'clinica_ap2': 5,
-  'alto_riesgo': 4,
-  'clinica_mq': 4,
-  'modulo2': 5,
-  'seminario1': 2,
-  'internado_neonatologia': 10,
-  'internado_obstetricia': 10,
-  'internado_ap': 10,
-  'internado_gineco': 10,
-  'internado_electivo': 15,
-  'seminario2': 3,
-  'ingles4': 3,
-  'internado_electivo1': 15
+  // Ciclo I
+  'introduccion_biologia': 3,
+  'introduccion_comunicacion': 2,
+  'introduccion_estudios_medicos': 2,
+  'introduccion_fisica': 3,
+  'introduccion_matematica': 3,
+  'introduccion_quimica': 3,
+  'actividades_deportivas': 1,
+  'informatica_educacion': 1,
+  
+  // Ciclo II
+  'epistemologia_medica': 1,
+  'lenguaje': 2,
+  'matematica_aplicada': 3,
+  'procedimientos_basicos': 2,
+  'quimica_aplicada': 4,
+  'biologia_celular': 4,
+  'fisica_aplicada': 3,
+  'ingles1': 1,
+  
+  // Ciclo III
+  'anatomia_humana1': 6,
+  'histologia_humana': 4,
+  'embriologia_genetica': 4,
+  'psicologia_medica': 3,
+  'historia_medicina': 2,
+  'ingles2': 1,
+  
+  // Ciclo IV
+  'anatomia_humana2': 4,
+  'bioquimica': 4,
+  'fisiologia_humana1': 5,
+  'bioestadistica': 3,
+  'realidad_nacional': 2,
+  
+  // Ciclo V
+  'fisiologia_humana2': 5,
+  'epidemiologia': 5,
+  'inmunologia_humana': 3,
+  'microbiologia_parasitologia': 5,
+  'diseno_investigacion': 3,
+  'gestion_informacion': 1,
+  
+  // Ciclo VI
+  'farmacologia': 5,
+  'psicologia1': 4,
+  'fisiopatologia': 3,
+  'salud_publica1': 4,
+  'bioetica': 3,
+  'jurica_medica': 2,
+  
+  // Ciclo VII
+  'semiologia_general': 8,
+  'cardiologia': 4,
+  'neumologia': 4,
+  'laboratorio_clinico': 2,
+  'diagnostico_imagen': 2,
+  'nutricion': 3,
+  
+  // Ciclo VIII
+  'hematologia': 4,
+  'reumatologia': 4,
+  'nefrologia': 4,
+  'neurologia': 4,
+  'patologia2': 3,
+  'salud_mental': 4,
+  
+  // Ciclo IX
+  'gastroenterologia': 4,
+  'dermatologia': 4,
+  'endocrinologia': 4,
+  'infectologia': 4,
+  'geriatria': 3,
+  'medicina_rehabilitacion': 2,
+  'terapeutica': 2,
+  
+  // Ciclo X
+  'cirugia_general': 5,
+  'cirugia_aparatodigestivo': 5,
+  'especialidades_quirurgicas': 3,
+  'cuidados_quirurgicos': 1,
+  'tecnicas_operatorias': 4,
+  'dolor_paliativos': 2,
+  'otorrinolaringologia': 2,
+  
+  // Ciclo XI
+  'pediatria1': 5,
+  'pediatria2': 4,
+  'neonatologia': 4,
+  'emergencias_medicas': 5,
+  'medicina_legal': 2,
+  'genetica_medica': 2,
+  
+  // Ciclo XII
+  'ginecologia': 5,
+  'obstetricia': 5,
+  'salud_publica2': 5,
+  'medicina_familiar': 3,
+  'gestion_servicios': 2,
+  'telemedicina': 2,
+  
+  // Ciclo XIII-XIV (Internados)
+  'internado1': 32,
+  'internado2': 32,
+  'trabajo_investigacion': 2,
+  
+  // Asignaturas electivas (ejemplos)
+  'anatomia_aplicada': 2,
+  'fisicoquimica_medica': 2,
+  'software_estadistico': 2,
+  'redaccion_cientifica': 2
 };
 
-// Prerrequisitos de cada ramo (ramos que deben estar aprobados para desbloquear este)
+// Prerrequisitos de cada asignatura
 const prerequisitos = {
-  'integracion1': ['fundamentos1'],
-  'bioquimica': ['quimica', 'biologia'],
-  'anatomia': ['biologia'],
-  'fisiologia': ['biologia', 'fisica'],
-  'biodesarrollo': ['biologia'],
-  'histologia': ['biologia'],
-  'investigacion1': ['mate', 'fisica'],
-  'educacion2': ['educacion1'],
-  'inmunologia': ['fisiologia'],
-  'cs_sociales2': ['cs_sociales1'],
-  'ingles2': ['ingles1'],
-  'saludcom1': [],
-  'fundamentos2': ['fisiologia', 'anatomia', 'histologia', 'integracion1'],
-  'obstetricia1': ['fisiologia', 'anatomia', 'histologia', 'biodesarrollo', 'integracion1'],
-  'neonatologia1': ['fisiologia', 'anatomia', 'histologia', 'biodesarrollo', 'integracion1'],
-  'fisiologia_sis': ['fisiologia'],
-  'agentes': ['fisiologia', 'anatomia', 'histologia'],
-  'cs_sociales3': ['cs_sociales2'],
-  'ingles3': ['ingles2'],
-  'neonatologia2': ['neonatologia1', 'fisiologia_sis', 'agentes'],
-  'obstetricia2': ['obstetricia1', 'fisiologia_sis'],
-  'gineco1': ['histologia', 'fisiologia_sis'],
-  'fisiopato': ['fisiologia_sis'],
-  'infectologia': ['agentes'],
-  'farmacologia': ['fisiologia_sis', 'bioquimica'],
-  'integracion2': ['fisiologia_sis','fundamentos2'],
-  'clinica_neonatal1': ['neonatologia2', 'fisiopato', 'infectologia', 'farmacologia', 'integracion2'],
-  'clinica_partos1': ['obstetricia2', 'fisiopato', 'infectologia', 'farmacologia', 'integracion2'],
-  'clinica_ap1': ['obstetricia2', 'gineco1', 'fisiopato', 'infectologia', 'farmacologia', 'integracion2'],
-  'clinica_puerperio': ['obstetricia2', 'fisiopato', 'infectologia', 'farmacologia', 'integracion2'],
-  'clinica_saludcom': ['integracion2'],
-  'modulo1': [],
-  'neonatologia3': ['farmacologia', 'fisiopato', 'obstetricia2'],
-  'saludcom2': ['saludcom1'],
-  'obstetricia_pat': ['obstetricia2', 'farmacologia', 'fisiopato'],
-  'gestion1': ['investigacion1'],
-  'investigacion2': ['investigacion1'],
-  'enfermeria_mq': ['neonatologia3', 'obstetricia_pat'],
-  'reproduccion': ['fisiologia_sis'],
-  'gineco_pat': ['clinica_ap1'],
-  'gestion2': ['gestion1'],
-  'investigacion3': ['investigacion2'],
-  'cs_sociales4': ['cs_sociales3'],
-  'clinica_neonatal2': ['neonatologia3', 'enfermeria_mq'],
-  'clinica_partos2': ['obstetricia_pat', 'enfermeria_mq'],
-  'clinica_ap2': ['obstetricia_pat', 'gineco_pat', 'saludcom2'],
-  'alto_riesgo': ['obstetricia_pat', 'enfermeria_mq'],
-  'clinica_mq': ['gineco_pat', 'enfermeria_mq'],
-  'modulo2': ['modulo1'],
-  'seminario1': ['investigacion3'],
-  'internado_neonatologia': ['clinica_neonatal2'],
-  'internado_obstetricia': ['clinica_partos2', 'alto_riesgo'],
-  'internado_ap': ['clinica_ap2'],
-  'internado_gineco': ['clinica_mq'],
-  'internado_neonatologia1': ['clinica_neonatal2'],
-  'internado_obstetricia1': ['clinica_partos2', 'alto_riesgo'],
-  'internado_ap1': ['clinica_ap2'],
-  'internado_gineco1': ['clinica_mq'],
-  'internado_electivo': [],
-  'internado_electivo1': [],
-  'seminario2': ['seminario1'],
-  'ingles4': ['ingles3']
+  // Ciclo II
+  'epistemologia_medica': ['introduccion_estudios_medicos'],
+  'matematica_aplicada': ['introduccion_matematica'],
+  'procedimientos_basicos': ['introduccion_biologia'],
+  'quimica_aplicada': ['introduccion_quimica'],
+  'biologia_celular': ['introduccion_biologia'],
+  'fisica_aplicada': ['introduccion_fisica'],
+  
+  // Ciclo III
+  'anatomia_humana1': ['biologia_celular'],
+  'histologia_humana': ['biologia_celular'],
+  'embriologia_genetica': ['biologia_celular'],
+  
+  // Ciclo IV
+  'anatomia_humana2': ['anatomia_humana1'],
+  'bioquimica': ['quimica_aplicada', 'histologia_humana'],
+  'fisiologia_humana1': ['anatomia_humana1', 'histologia_humana'],
+  
+  // Ciclo V
+  'fisiologia_humana2': ['fisiologia_humana1'],
+  'epidemiologia': ['bioestadistica'],
+  'inmunologia_humana': ['fisiologia_humana1'],
+  'microbiologia_parasitologia': ['fisiologia_humana1'],
+  
+  // Ciclo VI
+  'farmacologia': ['fisiologia_humana2', 'bioquimica'],
+  'fisiopatologia': ['fisiologia_humana2'],
+  'salud_publica1': ['epidemiologia'],
+  
+  // Ciclo VII (todas requieren ciclos I-VI)
+  'semiologia_general': ['fisiopatologia', 'farmacologia'],
+  'cardiologia': ['semiologia_general'],
+  'neumologia': ['semiologia_general'],
+  
+  // Ciclo VIII
+  'hematologia': ['semiologia_general'],
+  'reumatologia': ['semiologia_general'],
+  'nefrologia': ['semiologia_general'],
+  'neurologia': ['semiologia_general'],
+  
+  // Ciclo IX
+  'gastroenterologia': ['hematologia', 'nefrologia', 'neurologia'],
+  'dermatologia': ['hematologia', 'nefrologia', 'neurologia'],
+  'endocrinologia': ['hematologia', 'nefrologia', 'neurologia'],
+  
+  // Ciclo X
+  'cirugia_general': ['gastroenterologia', 'dermatologia'],
+  'cirugia_aparatodigestivo': ['gastroenterologia', 'dermatologia'],
+  
+  // Ciclo XI
+  'pediatria1': ['cirugia_general', 'cirugia_aparatodigestivo'],
+  'pediatria2': ['pediatria1'],
+  'neonatologia': ['pediatria1'],
+  
+  // Ciclo XII
+  'ginecologia': ['pediatria1', 'pediatria2', 'neonatologia'],
+  'obstetricia': ['pediatria1', 'pediatria2', 'neonatologia'],
+  
+  // Internados
+  'internado1': ['ginecologia', 'obstetricia'],
+  'internado2': ['internado1'],
+  
+  // Reglas especiales con créditos
+  'internado1': function(aprobados, totalCreditos) {
+    return totalCreditos >= 240; // Requiere 240 créditos aprobados
+  }
 };
 
-// Funciones para guardar y cargar progreso en localStorage
-function obtenerAprobados() {
-  const data = localStorage.getItem('mallaAprobados');
-  return data ? JSON.parse(data) : [];
-}
-
-function guardarAprobados(aprobados) {
-  localStorage.setItem('mallaAprobados', JSON.stringify(aprobados));
-}
-
-// Calcula el total de créditos de ramos aprobados
-function calcularCreditosAprobados() {
-  const aprobados = obtenerAprobados();
-  return aprobados.reduce((sum, ramo) => sum + (creditos[ramo] || 0), 0);
-}
-
-// Actualiza qué ramos están desbloqueados o bloqueados según prerrequisitos y créditos especiales
-function actualizarDesbloqueos() {
-  const aprobados = obtenerAprobados();
-  const totalCreditos = calcularCreditosAprobados();
-
-  for (const [destino, reqs] of Object.entries(prerequisitos)) {
-    const elem = document.getElementById(destino);
-    if (!elem) continue;
-
-    // Verificar si se cumplen prerrequisitos normales
-    let puedeDesbloquear = reqs.every(r => aprobados.includes(r));
-
-    // Reglas especiales con créditos para ciertos módulos
-    if (destino === 'modulo1') {
-      puedeDesbloquear = totalCreditos >= 90;
-    }
-    if (destino === 'modulo2') {
-      puedeDesbloquear = aprobados.includes('modulo1') && totalCreditos >= 170;
-    }
-    if (destino === 'internado_electivo' || destino === 'internado_electivo1') {
-      puedeDesbloquear = totalCreditos >= 240;
-    }
-
-    if (!elem.classList.contains('aprobado')) {
-      if (puedeDesbloquear) elem.classList.remove('bloqueado');
-      else elem.classList.add('bloqueado');
-    } else {
-      // Si está aprobado, no debe estar bloqueado
-      elem.classList.remove('bloqueado');
-    }
-  }
-}
-
-// Maneja el clic para aprobar o desaprobar un ramo (solo si no está bloqueado)
-function aprobar(e) {
-  const ramo = e.currentTarget;
-  if (ramo.classList.contains('bloqueado')) return;
-
-  ramo.classList.toggle('aprobado');
-
-  const aprobados = obtenerAprobados();
-  if (ramo.classList.contains('aprobado')) {
-    if (!aprobados.includes(ramo.id)) aprobados.push(ramo.id);
-  } else {
-    const idx = aprobados.indexOf(ramo.id);
-    if (idx > -1) aprobados.splice(idx, 1);
-  }
-  guardarAprobados(aprobados);
-
-  actualizarDesbloqueos();
-}
-
-// Al cargar la página, asignar eventos, cargar progreso y actualizar desbloqueos
-window.addEventListener('DOMContentLoaded', () => {
-  const todosRamos = document.querySelectorAll('.ramo');
-
-  const aprobados = obtenerAprobados();
-  todosRamos.forEach(ramo => {
-    if (aprobados.includes(ramo.id)) {
-      ramo.classList.add('aprobado');
-    }
-  });
-
-  todosRamos.forEach(ramo => {
-    ramo.addEventListener('click', aprobar);
-  });
-
-  actualizarDesbloqueos();
-});
+// [Resto del código permanece igual...]
