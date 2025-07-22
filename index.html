@@ -1,172 +1,196 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Malla Interactiva Medicina Humana USMP</title>
-  <meta name="description" content="Explora la malla curricular interactiva de Medicina Humana en la USMP. Descubre requisitos por semestre y desbloquea ramos al aprobar.">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="estilos.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malla Completa Medicina Humana USMP</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #0066cc;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 10px;
+        }
+        .malla-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .ciclo {
+            background-color: #e6f2ff;
+            border-radius: 10px;
+            padding: 15px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .ciclo h2 {
+            color: #004080;
+            text-align: center;
+            margin-top: 0;
+            border-bottom: 1px solid #99c2ff;
+            padding-bottom: 8px;
+        }
+        .curso {
+            background-color: #cce0ff;
+            margin: 8px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #0066cc;
+        }
+        .curso:hover {
+            background-color: #b3d1ff;
+        }
+    </style>
 </head>
-
 <body>
-  <h1>Medicina Humana USMP</h1>
-  <div class="malla-grid">
-    <!-- Ciclo I -->
-    <div class="semestre" id="sem1">
-      <h2>Ciclo I</h2>
-      <div class="ramo" id="fundamentos1" onclick="aprobar('fundamentos1')">Introducción a los Estudios Médicos</div>
-      <div class="ramo" id="quimica" onclick="aprobar('quimica')">Introducción a la Química</div>
-      <div class="ramo" id="biologia" onclick="aprobar('biologia')">Introducción a la Biología</div>
-      <div class="ramo" id="mate" onclick="aprobar('mate')">Introducción a la Lógica y Matemática</div>
-      <div class="ramo" id="fisica" onclick="aprobar('fisica')">Introducción a la Física General</div>
-      <div class="ramo" id="educacion1" onclick="aprobar('educacion1')">Introducción a la Comunicación</div>
-      <div class="ramo" id="cfg1" onclick="aprobar('cfg1')">Actividades Deportivas y Culturales</div>
-      <div class="ramo" id="ingles1" onclick="aprobar('ingles1')">Inglés I</div>
+    <h1>Medicina Humana USMP - Malla Curricular Completa</h1>
+    
+    <div class="malla-container">
+        <!-- CICLO I -->
+        <div class="ciclo">
+            <h2>Ciclo I</h2>
+            <div class="curso">Introducción a los Estudios Médicos</div>
+            <div class="curso">Biología Celular</div>
+            <div class="curso">Química General</div>
+            <div class="curso">Física Médica</div>
+            <div class="curso">Anatomía Básica</div>
+            <div class="curso">Histología</div>
+        </div>
+
+        <!-- CICLO II -->
+        <div class="ciclo">
+            <h2>Ciclo II</h2>
+            <div class="curso">Bioquímica Médica</div>
+            <div class="curso">Fisiología Humana I</div>
+            <div class="curso">Embriología</div>
+            <div class="curso">Genética</div>
+            <div class="curso">Bioética</div>
+        </div>
+
+        <!-- CICLO III -->
+        <div class="ciclo">
+            <h2>Ciclo III</h2>
+            <div class="curso">Fisiología Humana II</div>
+            <div class="curso">Microbiología</div>
+            <div class="curso">Parasitología</div>
+            <div class="curso">Inmunología</div>
+            <div class="curso">Patología General</div>
+        </div>
+
+        <!-- CICLO IV -->
+        <div class="ciclo">
+            <h2>Ciclo IV</h2>
+            <div class="curso">Farmacología General</div>
+            <div class="curso">Semiología</div>
+            <div class="curso">Propedéutica Médica</div>
+            <div class="curso">Epidemiología</div>
+            <div class="curso">Salud Pública I</div>
+        </div>
+
+        <!-- CICLO V -->
+        <div class="ciclo">
+            <h2>Ciclo V</h2>
+            <div class="curso">Fisiología Humana II</div>
+            <div class="curso">Epidemiología</div>
+            <div class="curso">Inmunología Humana</div>
+            <div class="curso">Microbiología y Parasitología</div>
+            <div class="curso">Diseño de Investigación Clínica</div>
+            <div class="curso">Gestión de la Información Científica</div>
+        </div>
+
+        <!-- CICLO VI -->
+        <div class="ciclo">
+            <h2>Ciclo VI</h2>
+            <div class="curso">Farmacología</div>
+            <div class="curso">Psicología I</div>
+            <div class="curso">Fisiopatología</div>
+            <div class="curso">Salud Pública I</div>
+            <div class="curso">Bases y Documentación</div>
+            <div class="curso">Juegos Olímpicos</div>
+        </div>
+
+        <!-- CICLO VII -->
+        <div class="ciclo">
+            <h2>Ciclo VII</h2>
+            <div class="curso">Semiología General</div>
+            <div class="curso">Cardiología</div>
+            <div class="curso">Neumología</div>
+            <div class="curso">Laboratorio Clínico</div>
+            <div class="curso">Diagnóstico por Imagen</div>
+            <div class="curso">Nutrición y Medio Interno</div>
+        </div>
+
+        <!-- CICLO VIII -->
+        <div class="ciclo">
+            <h2>Ciclo VIII</h2>
+            <div class="curso">Hematología</div>
+            <div class="curso">Reumatología</div>
+            <div class="curso">Nefrología</div>
+            <div class="curso">Neurología</div>
+            <div class="curso">Patología II</div>
+            <div class="curso">Salud Mental</div>
+        </div>
+
+        <!-- CICLO IX -->
+        <div class="ciclo">
+            <h2>Ciclo IX</h2>
+            <div class="curso">Gastroenterología</div>
+            <div class="curso">Dermatología y Medicina Estética</div>
+            <div class="curso">Endocrinología y Metabolismo</div>
+            <div class="curso">Infectología</div>
+            <div class="curso">Geriatría</div>
+            <div class="curso">Principios de Rehabilitación</div>
+            <div class="curso">Terapéutica</div>
+        </div>
+
+        <!-- CICLO X -->
+        <div class="ciclo">
+            <h2>Ciclo X</h2>
+            <div class="curso">Cirugía General</div>
+            <div class="curso">Cirugía del Aparato Locomotor</div>
+            <div class="curso">Especialidades Quirúrgicas</div>
+            <div class="curso">Cuidados Generales Quirúrgicos</div>
+            <div class="curso">Técnicas Anestésicas</div>
+        </div>
+
+        <!-- CICLO XI -->
+        <div class="ciclo">
+            <h2>Ciclo XI</h2>
+            <div class="curso">Pediatría General I</div>
+            <div class="curso">Pediatría General II</div>
+            <div class="curso">Neonatología</div>
+            <div class="curso">Emergencias Médicas</div>
+            <div class="curso">Medicina Legal</div>
+        </div>
+
+        <!-- CICLO XII -->
+        <div class="ciclo">
+            <h2>Ciclo XII</h2>
+            <div class="curso">Ginecología</div>
+            <div class="curso">Obstetricia</div>
+            <div class="curso">Salud Pública II</div>
+            <div class="curso">Medicina Familiar</div>
+            <div class="curso">Gestión en Salud</div>
+        </div>
+
+        <!-- INTERNADO -->
+        <div class="ciclo">
+            <h2>Internado</h2>
+            <div class="curso">Medicina Interna</div>
+            <div class="curso">Cirugía</div>
+            <div class="curso">Gineco-Obstetricia</div>
+            <div class="curso">Pediatría</div>
+            <div class="curso">Medicina Familiar</div>
+        </div>
     </div>
-
-    <!-- Ciclo II -->
-    <div class="semestre" id="sem2">
-      <h2>Ciclo II</h2>
-      <div class="ramo bloqueado" id="integracion1" onclick="aprobar('integracion1')">Procedimientos Básicos en Medicina</div>
-      <div class="ramo bloqueado" id="bioquimica" onclick="aprobar('bioquimica')">Química Aplicada a las Ciencias de la Salud</div>
-      <div class="ramo bloqueado" id="biodesarrollo" onclick="aprobar('biodesarrollo')">Biología Celular y Molecular</div>
-      <div class="ramo bloqueado" id="histologia" onclick="aprobar('histologia')">Informática en Educación Médica</div>
-      <div class="ramo bloqueado" id="anatomia" onclick="aprobar('anatomia')">Epistemología Médica</div>
-      <div class="ramo bloqueado" id="ingles2" onclick="aprobar('ingles2')">Language</div>
-      <div class="ramo bloqueado" id="cs_sociales1" onclick="aprobar('cs_sociales1')">Matemática Aplicada a las Ciencias de la Salud</div>
-    </div>
-
-    <!-- Ciclo III -->
-    <div class="semestre" id="sem3">
-      <h2>Ciclo III</h2>
-      <div class="ramo bloqueado" id="fundamentos2" onclick="aprobar('fundamentos2')">Anatomía Humana I</div>
-      <div class="ramo bloqueado" id="fisiologia" onclick="aprobar('fisiologia')">Histología Humana</div>
-      <div class="ramo bloqueado" id="medicina1" onclick="aprobar('medicina1')">Embriología Humana y Genética Básica</div>
-      <div class="ramo bloqueado" id="cs_sociales2" onclick="aprobar('cs_sociales2')">Recursos Humanos</div>
-      <div class="ramo bloqueado" id="educacion2" onclick="aprobar('educacion2')">Historia de la Medicina</div>
-      <div class="ramo bloqueado" id="ingles3" onclick="aprobar('ingles3')">Inglés II</div>
-    </div>
-
-    <!-- Ciclo IV -->
-    <div class="semestre" id="sem4">
-      <h2>Ciclo IV</h2>
-      <div class="ramo bloqueado" id="anatomia" onclick="aprobar('anatomia')">Anatomía Humana II</div>
-      <div class="ramo bloqueado" id="bioquimica" onclick="aprobar('bioquimica')">Bioquímica</div>
-      <div class="ramo bloqueado" id="fisiologia" onclick="aprobar('fisiologia')">Fisiología Humana I</div>
-      <div class="ramo bloqueado" id="biodesarrollo" onclick="aprobar('biodesarrollo')">Biocrecimiento</div>
-      <div class="ramo bloqueado" id="saludcom1" onclick="aprobar('saludcom1')">Residual Nacional</div>
-    </div>
-
-    <!-- Ciclo V -->
-    <div class="semestre" id="sem5">
-      <h2>Ciclo V</h2>
-      <div class="ramo bloqueado" id="fisiologia_sis" onclick="aprobar('fisiologia_sis')">Fisiología Humana II</div>
-      <div class="ramo bloqueado" id="medicina2" onclick="aprobar('medicina2')">Epidemiología</div>
-      <div class="ramo bloqueado" id="inmunologia" onclick="aprobar('inmunologia')">Inmunología Humana</div>
-      <div class="ramo bloqueado" id="agentes" onclick="aprobar('agentes')">Microbiología y Parasitología</div>
-      <div class="ramo bloqueado" id="investigacion1" onclick="aprobar('investigacion1')">Diseño de Investigación Clínica</div>
-      <div class="ramo bloqueado" id="gestion1" onclick="aprobar('gestion1')">Gestión de la Información Científica</div>
-    </div>
-
-    <!-- Ciclo VI -->
-    <div class="semestre" id="sem6">
-      <h2>Ciclo VI</h2>
-      <div class="ramo bloqueado" id="farmacologia" onclick="aprobar('farmacologia')">Farmacología</div>
-      <div class="ramo bloqueado" id="pediatria1" onclick="aprobar('pediatria1')">Psicología I</div>
-      <div class="ramo bloqueado" id="fisiopato" onclick="aprobar('fisiopato')">Fisiopatología</div>
-      <div class="ramo bloqueado" id="saludcom2" onclick="aprobar('saludcom2')">Salud Pública I</div>
-      <div class="ramo bloqueado" id="investigacion2" onclick="aprobar('investigacion2')">Bases y Documentación</div>
-      <div class="ramo bloqueado" id="cs_sociales3" onclick="aprobar('cs_sociales3')">Juegos Olímpicos</div>
-    </div>
-
-    <!-- Ciclo VII -->
-    <div class="semestre" id="sem7">
-      <h2>Ciclo VII</h2>
-      <div class="ramo bloqueado" id="clinica_medica1" onclick="aprobar('clinica_medica1')">Semiología General</div>
-      <div class="ramo bloqueado" id="cardiologia" onclick="aprobar('cardiologia')">Cardiología</div>
-      <div class="ramo bloqueado" id="neumologia" onclick="aprobar('neumologia')">Neumología</div>
-      <div class="ramo bloqueado" id="laboratorio" onclick="aprobar('laboratorio')">Laboratorio Clínico</div>
-      <div class="ramo bloqueado" id="diagnostico" onclick="aprobar('diagnostico')">Diagnóstico por Imagen</div>
-      <div class="ramo bloqueado" id="nutricion" onclick="aprobar('nutricion')">Nutrición y Medio Interno</div>
-    </div>
-
-    <!-- Ciclo VIII -->
-    <div class="semestre" id="sem8">
-      <h2>Ciclo VIII</h2>
-      <div class="ramo bloqueado" id="hematologia" onclick="aprobar('hematologia')">Hematología</div>
-      <div class="ramo bloqueado" id="reumatologia" onclick="aprobar('reumatologia')">Reumatología</div>
-      <div class="ramo bloqueado" id="nefrologia" onclick="aprobar('nefrologia')">Nefrología</div>
-      <div class="ramo bloqueado" id="neurologia" onclick="aprobar('neurologia')">Neurología</div>
-      <div class="ramo bloqueado" id="patologia2" onclick="aprobar('patologia2')">Patología II</div>
-      <div class="ramo bloqueado" id="saludmental" onclick="aprobar('saludmental')">Salud Mental</div>
-    </div>
-
-    <!-- Ciclo IX -->
-    <div class="semestre" id="sem9">
-      <h2>Ciclo IX</h2>
-      <div class="ramo bloqueado" id="gastroenterologia" onclick="aprobar('gastroenterologia')">Gastroenterología</div>
-      <div class="ramo bloqueado" id="dermatologia" onclick="aprobar('dermatologia')">Dermatología y Medicina Estética</div>
-      <div class="ramo bloqueado" id="endocrinologia" onclick="aprobar('endocrinologia')">Endocrinología y Metabolismo</div>
-      <div class="ramo bloqueado" id="infectologia" onclick="aprobar('infectologia')">Infectología</div>
-      <div class="ramo bloqueado" id="geriatria" onclick="aprobar('geriatria')">Geriatría</div>
-      <div class="ramo bloqueado" id="rehabilitacion" onclick="aprobar('rehabilitacion')">Principios de la Medicina Física y Rehabilitación</div>
-      <div class="ramo bloqueado" id="terapeutica" onclick="aprobar('terapeutica')">Terapéutica</div>
-    </div>
-
-    <!-- Ciclo X -->
-    <div class="semestre" id="sem10">
-      <h2>Ciclo X</h2>
-      <div class="ramo bloqueado" id="cirugia1" onclick="aprobar('cirugia1')">Cirugía General y Digestiva</div>
-      <div class="ramo bloqueado" id="cirugia2" onclick="aprobar('cirugia2')">Cirugía del Aparato Locomotor</div>
-      <div class="ramo bloqueado" id="especialidades" onclick="aprobar('especialidades')">Especialidades Quirúrgicas</div>
-      <div class="ramo bloqueado" id="cuidados" onclick="aprobar('cuidados')">Cuidados Generales Quirúrgicos</div>
-      <div class="ramo bloqueado" id="anestesiologia" onclick="aprobar('anestesiologia')">Técnica Operativa - Anestesiología</div>
-      <div class="ramo bloqueado" id="dolor" onclick="aprobar('dolor')">Catálisis Patálgica y Terapia del Dolor</div>
-      <div class="ramo bloqueado" id="otorrino" onclick="aprobar('otorrino')">Otorrinolaringología</div>
-    </div>
-
-    <!-- Ciclo XI -->
-    <div class="semestre" id="sem11">
-      <h2>Ciclo XI</h2>
-      <div class="ramo bloqueado" id="pediatria2" onclick="aprobar('pediatria2')">Pediatría General I</div>
-      <div class="ramo bloqueado" id="pediatria3" onclick="aprobar('pediatria3')">Pediatría General II</div>
-      <div class="ramo bloqueado" id="neonatologia" onclick="aprobar('neonatologia')">Neonatología</div>
-      <div class="ramo bloqueado" id="emergencias" onclick="aprobar('emergencias')">Emergencias Médicas y Toxicológicas</div>
-      <div class="ramo bloqueado" id="medlegal" onclick="aprobar('medlegal')">Medicina Legal y Psiquiatría Forense</div>
-      <div class="ramo bloqueado" id="genetica" onclick="aprobar('genetica')">Genética Médica</div>
-    </div>
-
-    <!-- Ciclo XII -->
-    <div class="semestre" id="sem12">
-      <h2>Ciclo XII</h2>
-      <div class="ramo bloqueado" id="ginecologia" onclick="aprobar('ginecologia')">Ginecología</div>
-      <div class="ramo bloqueado" id="obstetricia" onclick="aprobar('obstetricia')">Obstetricia</div>
-      <div class="ramo bloqueado" id="saludpublica2" onclick="aprobar('saludpublica2')">Salud Pública II</div>
-      <div class="ramo bloqueado" id="medfamiliacomunitaria" onclick="aprobar('medfamiliacomunitaria')">Medicina Familiar y Comunitaria</div>
-      <div class="ramo bloqueado" id="gestion2" onclick="aprobar('gestion2')">Gestión en Servicios de Salud</div>
-      <div class="ramo bloqueado" id="telemedicina" onclick="aprobar('telemedicina')">Telemedicina e Inteligencia Artificial</div>
-    </div>
-
-    <!-- Internado Médico -->
-    <div class="semestre" id="internado">
-      <h2>Internado Médico</h2>
-      <div class="ramo bloqueado" id="internado1" onclick="aprobar('internado1')">Internado Médico I</div>
-      <div class="ramo bloqueado" id="internado2" onclick="aprobar('internado2')">Internado Médico II</div>
-      <div class="ramo bloqueado" id="trabajoinvestigacion" onclick="aprobar('trabajoinvestigacion')">Trabajo de Investigación</div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-
-  <style>
-    h1 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      color: #c2185b;
-      text-align: center;
-      margin-bottom: 40px;
-    }
-  </style>
 </body>
 </html>
